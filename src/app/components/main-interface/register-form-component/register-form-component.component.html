@@ -1,0 +1,58 @@
+<div class="container-fluid">
+
+    <div class="row mt-5 mb-5">
+        <h2 class="text-center">Registro en la plataforma</h2>
+    </div>
+
+
+    <div class="row">
+        <div class="col-md-4">
+        </div>
+
+
+        <div class="col-md-4 col-12 text-center">
+
+            <form [formGroup]="registerForm" class="" (ngSubmit)="registrarUser()">
+
+
+
+                <div class="mt-3 mb-3 text-center">
+                    <label for="nombreUsuario"> Nombre de Usuario: </label>
+                    <input type="text" id="nombreUsuario" class="w-100" formControlName="nombreUsuario">
+                </div>
+
+
+                <div class="mt-3 mb-3 text-center">
+                    <label for="password"> Contraseña: </label>
+                    <input type="password" id="password" class="w-100" formControlName="password">
+                </div>
+
+                <div class="mt-3 mb-3 text-center">
+                    <label for="nombreCompleto"> Nombre completo: </label>
+                    <input type="text" id="nombreCompleto" class="w-100" formControlName="nombreCompleto">
+                </div>
+
+                <div class="mt-3 mb-3 text-center">
+                    <label for="pais"> Pais: </label>
+                    <input type="text" id="pais" class="w-100" formControlName="pais">
+                </div>
+
+
+
+                <div class="mt-3 mb-3 text-center">
+                    <label for="ciudad"> Ciudad: </label>
+                    <input type="text" id="ciudad" class="w-100" formControlName="ciudad">
+                </div>
+
+                <button [disabled]="!registerForm.valid" class="btn-success w-100">Registrarse</button>
+            </form>
+
+            <br> <br> <br>
+            <button (click)="redirectToLogin()" class="btn-danger text-center w-50">Ya tienes una cuenta? click aqui para ir al login</button>
+
+        </div>
+
+        <div class="col-md-4">
+        </div>
+    </div>
+</div>
