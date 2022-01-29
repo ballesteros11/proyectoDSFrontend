@@ -1,10 +1,10 @@
-<nav class="navbar navbar-light bg-success text-center d-flex">
+<nav class="navbar navbar-dark bg-dark text-center d-flex">
     <div class="container-fluid justify-content-center">
       <p class="navbar-brand">Red de apoyo internacional</p>
     </div>
     <div class="justify-content-center" *ngIf="validateLogin()">
-      <button (click)="desloguear()">Cerrar sesión</button>
-      <button class="btn-danger" (click)="redireccionar()">Ir al Menu Principal</button>
-      <button class="btn-primary" (click)="redirectProfile()">Ir a mi perfil</button>
+      <button class="btn-primary btn" (click)="desloguear()">Cerrar sesión</button>
+      <button class="btn-danger btn" (click)="redireccionar()">Ir al Menu Principal</button>
+      <button class="btn-primary btn" (click)="redirectProfile()">Ir a mi perfil</button>
     </div>
 </nav>
