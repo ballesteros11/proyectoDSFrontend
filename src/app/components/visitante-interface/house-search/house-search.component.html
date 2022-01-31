@@ -3,19 +3,6 @@
         <h2 class="text-center">Busqueda de casas</h2>
     </div>
 
-    <div class="row mt-1 mb-1">
-
-        <div class="col-md-5">
-        </div>
-
-        <div class="col-md-2">
-            <button class="btn-dark w-100 btn" (click)="buscarTodas($event)"> Click aqui para mostrar todas las casas disponibles </button>
-        </div>
-
-        <div class="col-md-5">
-        </div>
-        
-    </div>
 
     <div class="row">
         <div class="col-md-4">
@@ -29,56 +16,102 @@
 
                 <div class="mt-3 mb-3 text-center">
                     <label for="password"> Pais: </label>
-                    <select name="pais" id="pais" formControlName="pais" class="w-100 form-select" >
-                        <option (click)="cargarEstados(pais.country_name)" *ngFor="let pais of this.paises" [value]="pais.country_name" > {{pais.country_name}} </option>
+                    <select name="pais" id="pais" formControlName="pais" class="w-100 form-select">
+                        <option (click)="cargarEstados(pais.country_name)" *ngFor="let pais of this.paises"
+                            [value]="pais.country_name"> {{pais.country_name}} </option>
                     </select>
                 </div>
 
                 <div class="mt-3 mb-3 text-center">
                     <label for="estado"> Estado/Departamento: </label>
                     <select name="estado" id="estado" formControlName="estado" class="w-100 form-select">
-                        <option (click)="cargarCiudades(estado.state_name)" *ngFor="let estado of this.estados" [value]="estado.state_name"> {{estado.state_name}} </option>
+                        <option (click)="cargarCiudades(estado.state_name)" *ngFor="let estado of this.estados"
+                            [value]="estado.state_name"> {{estado.state_name}} </option>
                     </select>
                 </div>
 
                 <div class="mt-3 mb-3 text-center">
                     <label for="ciudad"> Ciudad: </label>
                     <select name="ciudad" id="ciudad" formControlName="ciudad" class="w-100 form-select">
-                        <option *ngFor="let ciudad of this.ciudades" [value]="ciudad.city_name"> {{ciudad.city_name}} </option>
+                        <option *ngFor="let ciudad of this.ciudades" [value]="ciudad.city_name"> {{ciudad.city_name}}
+                        </option>
                     </select>
                 </div>
 
 
-                <button class="btn-dark btn w-100">Buscar Casas</button>
+                <button class="btn-primary btn w-100">Buscar Casas</button>
             </form>
+
+        </div>
+        <br />
+
+        <div class="row mt-1 mb-1">
+            <hr />
+            <div class="col-md-5">
+            </div>
+
+            <div class="col-md-2">
+                <button class="btn-outline-success w-100 mt-2 mb-3 btn" (click)="buscarTodas($event)">Mostrar casas
+                    disponibles </button>
+            </div>
+
+            <div class="col-md-5">
+            </div>
 
         </div>
 
         <div class="col-md-4">
         </div>
     </div>
-
+    <div class="container">
+        
+    </div>
     <div class="row mt-5 mb-5">
         <div class="col-md-3">
         </div>
 
-        
+
 
 
         <div class="col-md-6 col-12">
-
+           
+            <hr>
+            <div class="card h-100">
             <h2 class="text-center"> {{this.mensaje}}</h2>
 
-            <div class="card mb-1 d-inline-block w-25" *ngFor="let casa of this.casasBusqueda">
+            <div class="row row-cols-1 row-cols-md-3 g-4">
+
+
+                <div class="col" *ngFor="let casa of this.casasBusqueda">
+                    <div class="card h-100">
+                        <img src="{{casa.foto}}" class="card-img-top" style="height: 150px;" alt="...">
+                        <div class="card-body">
+                            <p class="card-text">Pais: {{casa.pais}}</p>
+                            <p class="card-text">Estado: {{casa.estado}} </p>
+                            <p class="card-text">Ciudad: {{casa.ciudad}}</p>
+                            <p class="card-text">Dueño: {{casa.idPropietario}}</p>
+                           
+                            
+                        </div>
+                        <div class="card-footer">
+                            <button class="btn-success btn w-100" (click)="redirectToHouseDetails(casa.idCasa)"> Ver Detalles
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- <div class="card mb-1 d-inline-block w-25" *ngFor="let casa of this.casasBusqueda">
                 <img src="{{casa.foto}}" class="card-img-top" alt="...">
                 <div class="card-body">
-                  <p class="card-text">Pais: {{casa.pais}}</p>
-                  <p class="card-text">Estado: {{casa.estado}} </p>
-                  <p class="card-text">Ciudad: {{casa.ciudad}}</p>
-                  <p class="card-text">Dueño: {{casa.idPropietario}}</p>
-                  <button class="btn-dark btn w-40" (click)="redirectToHouseDetails(casa.idCasa)"> Ver Detalles -> </button>
+                    <p class="card-text">Pais: {{casa.pais}}</p>
+                    <p class="card-text">Estado: {{casa.estado}} </p>
+                    <p class="card-text">Ciudad: {{casa.ciudad}}</p>
+                    <p class="card-text">Dueño: {{casa.idPropietario}}</p>
+                    <button class="btn-dark btn w-40" (click)="redirectToHouseDetails(casa.idCasa)"> Ver Detalles ->
+                    </button>
                 </div>
-              </div>
+            </div> -->
+        </div>
 
         </div>
 

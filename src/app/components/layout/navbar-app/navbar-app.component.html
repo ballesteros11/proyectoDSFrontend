@@ -1,10 +1,16 @@
-<nav class="navbar navbar-dark bg-dark text-center d-flex">
-    <div class="container-fluid justify-content-center">
-      <p class="navbar-brand">Red de apoyo internacional</p>
-    </div>
-    <div class="justify-content-center" *ngIf="validateLogin()">
-      <button class="btn-primary btn" (click)="desloguear()">Cerrar sesión</button>
-      <button class="btn-danger btn" (click)="redireccionar()">Ir al Menu Principal</button>
-      <button class="btn-primary btn" (click)="redirectProfile()">Ir a mi perfil</button>
-    </div>
-</nav>
+<div class="container" *ngIf="validateLogin()">
+  <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+    <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+      <svg class="bi me-2" width="40" height="32">
+        <use xlink:href="#bootstrap"></use>
+      </svg>
+      <span class="fs-4">Red de apoyo internacional</span>
+    </a>
+
+    <ul class="nav nav-pills">
+      <button class="nav-item btn" (click)="redireccionar()">Ir al Menu Principal</button>
+      <button class="nav-item btn" (click)="redirectProfile()">Ir a mi perfil</button>
+      <button class="btn-outline-danger btn" (click)="desloguear()">Cerrar sesión</button>
+    </ul>
+  </header>
+</div>

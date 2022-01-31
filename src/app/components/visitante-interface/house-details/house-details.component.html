@@ -1,78 +1,77 @@
-<div class="container-fluid">
-    <div class="row mt-3 mb-2">
-        <h2 class="text-center">Detalles de la casa</h2>
-    </div>
-
+<div class="container">
     
+    <div class="container">
+        <div class="row">
+            <h2 class="text">Detalles de la casa</h2>
+            <br>
+            <div class="row">
+                <div class="col-6">
+                    <img src="{{this.casa.foto}}" class="w-100" style="height: 350px;" alt="">
+                </div>
+                <div class="col-6">
 
-    <div class="row">
-        <div class="col-md-4">
-        </div>
+                    <h1>Detalles</h1>
+                    <p class=" mb-2">
+                        Disfruta esta hermosa casa ubicada en {{this.casa.pais}}, en la ciudad de {{this.casa.ciudad}}, ubicada en el estado {{this.casa.estado}}
+                    </p>
 
+                            
+                    <h2 class=""> Información de la casa:  </h2>
+        
+                    <p class="mt-2">
+                        Dirección: {{this.casa.direccion}}
+                    </p>
+                    <p class="">
+                        Teléfono: {{this.casa.telefono}}
+                    </p>
+                    <p class="">
+                        Dueño: {{this.casa.idPropietario}}
+                    </p>
+        
+                    <h1>Puntuacion promedio de la casa: {{this.puntajePromedio}}</h1>
+                    
+                    <!-- <h4>La calificación promedio de esta casa es de: <ngb-rating class="mt-4 mb-4" [readonly]="true" [max]="5" [rate]="this.puntajePromedio"></ngb-rating></h4>  -->
 
-        <div class="col-md-4 col-12 text-center">
+                  
+        
+                    <div class="">
+                        <a [routerLink]="['/reserva/', this.casa.idCasa]"><button class="btn-outline-success btn w-100 mt-3 mb-3"> Reserva esta casa</button></a>
+                    </div>
 
-            <img src="{{this.casa.foto}}" class="w-100" alt="">
-
-
-            <h4>La calificación promedio de esta casa es de: <ngb-rating class="mt-4 mb-4" [readonly]="true" [max]="5" [rate]="this.puntajePromedio"></ngb-rating></h4> 
-
-            <p class="mt-5 mb-2">
-                Disfruta esta hermosa casa ubicada en {{this.casa.pais}}, en la ciudad de {{this.casa.ciudad}}, ubicada en el estado {{this.casa.estado}}
-            </p>
-
-            <div class="">
-                <a [routerLink]="['/reserva/', this.casa.idCasa]"><button class="btn-dark btn w-100 mt-3 mb-3"> Reserva esta casa, dale click aqui :D </button></a>
+                </div>
             </div>
-
-            <h2 class=""> Información de la casa:  </h2>
-
-            <p class="mt-2">
-                Dirección: {{this.casa.direccion}}
-            </p>
-            <p class="">
-                Teléfono: {{this.casa.telefono}}
-            </p>
-            <p class="">
-                Dueño: {{this.casa.idPropietario}}
-            </p>
-
+            
 
             
         </div>
+        <br>
+        <div class="row">
+            <div class="col-12">
+                <h2 class="text-center">Comentarios sobre la estadía en esta casa</h2>
+                <hr>
+                <div class="col-md-6 col-12 ">
 
-        <div class="col-md-4">
-        </div>
-    </div>
-    <hr>
-    <div class="row mt-3 mb-2">
-        <h2 class="text-center">Comentarios sobre la estadía en esta casa</h2>
-    </div>
-
-    <div class="row">
-        <div class="col-md-4">
-        </div>
-
-
-        <div class="col-md-4 col-12 text-center">
-
-            <div class=""  *ngFor="let calificacion of this.calificaciones" >
-                
-                <div class="" *ngIf="calificacion.puntajeEstadia != null && calificacion.comentarioEstadia != '' ">
-
-                    
-                    <ngb-rating class="mt-4 mb-4" *ngIf="calificacion.puntajeEstadia != null" [readonly]="true" [max]="5" [rate]="calificacion.puntajeEstadia"></ngb-rating>
-                    <h4>Comentario: </h4>
-                    <p> {{calificacion.comentarioEstadia}} </p>
-                    <hr>
-
+                    <div class=""  *ngFor="let calificacion of this.calificaciones" >
+                        
+                        <div class="" *ngIf="calificacion.puntajeEstadia != null && calificacion.comentarioEstadia != '' ">
+        
+                            <hr>
+                            <h4>Puntuacion: {{calificacion.puntajeEstadia}}</h4>
+                            <!-- <ngb-rating class="mt-2 mb-2" *ngIf="calificacion.puntajeEstadia != null" [readonly]="true" [max]="5" [rate]="calificacion.puntajeEstadia"></ngb-rating> -->
+                            <textarea name="" id="" cols="75" rows="3" disabled>{{calificacion.comentarioEstadia}} </textarea>
+                            <p> </p>
+                            <hr>
+        
+                        </div>
+                        
+                    </div>
+        
                 </div>
-                
+        
             </div>
 
         </div>
 
-        <div class="col-md-4">
-        </div>
     </div>
+        
 </div>
